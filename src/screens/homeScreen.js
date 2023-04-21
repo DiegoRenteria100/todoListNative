@@ -63,7 +63,7 @@ const HomeScreen = () => {
           data={tasks}
           keyExtractor={item => item}
           renderItem={({ item, index }) => (
-            <TaskItem editTask={()=>editTask()} task={item} onPress={() => deleteTask(index)} onEdit={() => editItem(index)} />
+            <TaskItem task={item} onPress={() => deleteTask(index)} onEdit={() => editItem(index)} />
           )}
           ListHeaderComponent={() => <ListHeader />}
           ItemSeparatorComponent={() => <View style={{ marginVertical: 5 }} />}

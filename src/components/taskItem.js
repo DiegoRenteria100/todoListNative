@@ -1,8 +1,9 @@
 import React from 'react';
 import { TextInput, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import AntDesing from 'react-native-vector-icons/AntDesign';
+import useTask from '../hooks/useTask';
 
-const TaskItem = ({ editTask, task, onPress, onEdit }) => {
+const TaskItem = ({ task, onPress, onEdit }) => {
 
 
   const [isEdit, setIsEdit] = useState(true);
@@ -11,10 +12,14 @@ const TaskItem = ({ editTask, task, onPress, onEdit }) => {
     setIsEdit(!isEdit);
   }
 
+  const editTask = () =>{
+    useTask.setTask(task)
+  }
+
   const EditItem = () => {
     return (
       <View style={style.container}>
-        <TouchableOpacity style={style.button} onPress={()=>{onEdit; changeState}}>
+        <TouchableOpacity style={style.button} onPress={()=>{onEdit; changeState()}}>
           <AntDesing
             name="check"
             color={'white'}
@@ -25,7 +30,7 @@ const TaskItem = ({ editTask, task, onPress, onEdit }) => {
         <TextInput
           style={style.input}
           value={task}
-          onChangeText={editTask}
+          onChangeText={editTask()}
         />
       </View>
     );
@@ -42,7 +47,7 @@ const TaskItem = ({ editTask, task, onPress, onEdit }) => {
             style={style.buttonDelete}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={style.button} onPress={changeState}>
+        <TouchableOpacity style={style.button} onPress={changeState()}>
           <AntDesing
             name="edit"
             color={'#D2ECFD'}
