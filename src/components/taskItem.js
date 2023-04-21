@@ -14,7 +14,7 @@ const TaskItem = ({ editTask, task, onPress, onEdit }) => {
   const EditItem = () => {
     return (
       <View style={style.container}>
-        <TouchableOpacity style={style.button} onPress={onEdit}>
+        <TouchableOpacity style={style.button} onPress={()=>{onEdit; changeState}}>
           <AntDesing
             name="check"
             color={'white'}

@@ -34,7 +34,6 @@ const useTask = () => {
     const temp = [...tasks];
     temp[index] = task;
     setTasks(temp);
-    setIsEdit(true);
   };
 
   return {
