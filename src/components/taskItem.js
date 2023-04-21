@@ -5,7 +5,7 @@ import useTask from '../hooks/useTask';
 
 const TaskItem = ({ task, onPress, onEdit }) => {
 
-
+  usingTask = new useTask();
   const [isEdit, setIsEdit] = useState(true);
 
   const changeState = () => {
@@ -13,7 +13,7 @@ const TaskItem = ({ task, onPress, onEdit }) => {
   }
 
   const editTask = () =>{
-    useTask.setTask(task)
+    usingTask.editTask(task)
   }
 
   const EditItem = () => {
