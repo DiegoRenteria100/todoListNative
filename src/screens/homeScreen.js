@@ -18,7 +18,7 @@ import Weather from '../components/weather';
 const screenHeight = Dimensions.get('screen').height;
 
 const HomeScreen = () => {
-  const { addTask, deleteTask, task, tasks, showAdd, isEdit, updateAdd, editTask, editItem, changeState } =
+  const { addTask, deleteTask, task, tasks, showAdd, updateAdd, editTask, editItem } =
     useTask();
   const [showWeather, setShowWeather] = useState(false);
   
@@ -63,7 +63,7 @@ const HomeScreen = () => {
           data={tasks}
           keyExtractor={item => item}
           renderItem={({ item, index }) => (
-            <TaskItem editTask={()=>editTask()} onState={() => changeState()} isEdit={isEdit} task={item} onPress={() => deleteTask(index)} onEdit={() => editItem(index)} />
+            <TaskItem editTask={()=>editTask()} task={item} onPress={() => deleteTask(index)} onEdit={() => editItem(index)} />
           )}
           ListHeaderComponent={() => <ListHeader />}
           ItemSeparatorComponent={() => <View style={{ marginVertical: 5 }} />}

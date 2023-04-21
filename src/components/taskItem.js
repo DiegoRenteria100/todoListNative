@@ -2,8 +2,14 @@ import React from 'react';
 import { TextInput, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import AntDesing from 'react-native-vector-icons/AntDesign';
 
-const TaskItem = ({ editTask, onState, task, onPress, onEdit, isEdit }) => {
+const TaskItem = ({ editTask, task, onPress, onEdit }) => {
 
+
+  const [isEdit, setIsEdit] = useState(true);
+
+  const changeState = () => {
+    setIsEdit(!isEdit);
+  }
 
   const EditItem = () => {
     return (
@@ -11,9 +17,9 @@ const TaskItem = ({ editTask, onState, task, onPress, onEdit, isEdit }) => {
         <TouchableOpacity style={style.button} onPress={onEdit}>
           <AntDesing
             name="check"
-            color={'#D2ECFD'}
+            color={'white'}
             size={25}
-            style={style.buttonDelete}
+            style={style.button}
           />
         </TouchableOpacity>
         <TextInput
@@ -36,7 +42,7 @@ const TaskItem = ({ editTask, onState, task, onPress, onEdit, isEdit }) => {
             style={style.buttonDelete}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={style.button} onPress={onState}>
+        <TouchableOpacity style={style.button} onPress={changeState}>
           <AntDesing
             name="edit"
             color={'#D2ECFD'}

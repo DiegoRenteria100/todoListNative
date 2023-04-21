@@ -7,9 +7,6 @@ const useTask = () => {
   //Guardar tasks
   const [tasks, setTasks] = useState(['Tareas pendientes']);
 
-  const [isEdit, setIsEdit] = useState(true);
-
-
   const addTask = () => {
     //agregar el task al arreglo
     setTasks(currentTasks => [...currentTasks, task]);
@@ -40,20 +37,15 @@ const useTask = () => {
     setIsEdit(true);
   };
 
-  const changeState = () => {
-    setIsEdit(false);
-  }
   return {
     addTask,
     deleteTask,
     task,
     tasks,
     showAdd,
-    isEdit,
     updateAdd,
     editTask,
     editItem,
-    changeState,
   };
 };
 
